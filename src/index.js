@@ -122,7 +122,7 @@ function createWindow() {
   mainWindow.show()
   
   // Patch Google User-Agent so it lets us authenticate
-  mainWindow.webContents.session.defaultSession.webRequest.onBeforeSendHeaders(
+  mainWindow.webContents.session.webRequest.onBeforeSendHeaders(
     { urls: [ 'https://accounts.google.com/o/oauth2/*' ] },
     (details, callback) => {
       details.requestHeaders['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
